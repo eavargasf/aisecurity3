@@ -9,11 +9,7 @@ const UserData = () => {
     const fetchUserData = async () => {
       const session = supabase.auth.session();
       if (session) {
-        const { data: userData, error } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
+        const { data: userData, error } = await supabase.from('users').select('*').eq('id', session.user.id).single();
         if (error) {
           console.error('Error fetching user data:', error);
         } else {
@@ -41,4 +37,3 @@ const UserData = () => {
 };
 
 export default UserData;
-

@@ -1,6 +1,5 @@
-// src/App.js
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -10,15 +9,16 @@ import UserData from './pages/UserData';
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/user-data" component={UserData} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/user-data" element={<UserData />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+
